@@ -14,4 +14,6 @@ package com.example.kotlinproject.base
  * @Version:        1.0
  */
 interface IBaseView {
+
+
 }

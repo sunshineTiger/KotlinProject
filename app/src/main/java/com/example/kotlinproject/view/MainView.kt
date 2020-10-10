@@ -19,4 +19,7 @@ interface MainView : IBaseView {
 
     fun success();
 
+
+
+
 }

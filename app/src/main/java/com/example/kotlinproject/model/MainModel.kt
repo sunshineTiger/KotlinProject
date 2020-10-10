@@ -2,6 +2,7 @@ package com.example.kotlinproject.model
 
 import com.example.kotlinproject.base.IBaseModel
 import com.example.kotlinproject.base.`interface`.MyCallback
+import com.example.kotlinproject.utils.LogUtil
 
 /**
  *
@@ -20,6 +21,7 @@ open class MainModel(callback: MainCallback) : IBaseModel<MyCallback>() {
     private var back: MainCallback = callback
 
     fun show1() {
+        LogUtil.info("xxxx", "show1")
         back.method1()
     }
 }

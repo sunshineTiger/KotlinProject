@@ -4,7 +4,9 @@ import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlinproject.R
+import com.example.kotlinproject.utils.IntentUtils
 import com.example.kotlinproject.utils.StatusBarUtil
+import com.example.kotlinproject.utils.ToastUtil
 
 
 /**
@@ -33,7 +35,6 @@ abstract class BaseActivity<T : BasePresenter<IBaseView>> : AppCompatActivity(),
         setContentView(getLayoutId())
         setStatusBar()
         mPresenter = getPresenter()
-        mPresenter?.attachView()
         initData()
         initView()
     }
@@ -63,6 +64,28 @@ abstract class BaseActivity<T : BasePresenter<IBaseView>> : AppCompatActivity(),
      * 初始化view
      */
     abstract fun initView()
+
+    /**
+     *显示加载框
+     */
+    open fun showLoading() {
+
+    }
+
+    /**
+     * 隐藏加载框
+     */
+    open fun hideLoading() {
+
+    }
+
+    /**
+     *吐司提示
+     */
+    open fun showToast(str: String) {
+        ToastUtil.show(str)
+    }
+
 
     /**
      * 初始化Presenter

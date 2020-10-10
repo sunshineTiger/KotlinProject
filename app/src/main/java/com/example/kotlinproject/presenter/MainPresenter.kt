@@ -6,6 +6,7 @@ import com.example.kotlinproject.base.IBaseView
 import com.example.kotlinproject.base.`interface`.MyCallback
 import com.example.kotlinproject.model.MainCallback
 import com.example.kotlinproject.model.MainModel
+import com.example.kotlinproject.utils.LogUtil
 import com.example.kotlinproject.view.MainView
 import okhttp3.Call
 import okhttp3.Callback
@@ -24,17 +25,13 @@ import java.io.IOException
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  */
-class MainPresenter(mainView: MainView) : BasePresenter<IBaseView>(mainView), MainCallback{
-
+class MainPresenter(mainView: MainView) : BasePresenter<IBaseView>(mainView), MainCallback {
 
 
     fun work() {
+        LogUtil.info("xxxx", "work")
         (modelLayer as MainModel).show1()
     }
-
-
-
-
 
 
     override fun getModel(): IBaseModel<MyCallback> {
@@ -42,7 +39,10 @@ class MainPresenter(mainView: MainView) : BasePresenter<IBaseView>(mainView), Ma
     }
 
     override fun method1() {
-
+        if (null != viewLayer){
+            LogUtil.info("xxxx", "method1")
+            (viewLayer as MainView).success()
+        }
     }
 
     override fun back() {

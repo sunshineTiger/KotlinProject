@@ -1,5 +1,8 @@
 package com.example.kotlinproject.utils
 
+import android.widget.Toast
+import com.example.kotlinproject.base.AppManager
+
 /**
  *
  * @ProjectName:    KotlinProject
@@ -17,7 +20,11 @@ class ToastUtil {
 
     companion object {
         fun show(str: String) {
-
+            Toast.makeText(
+                AppManager.instance.currentActivity().applicationContext,
+                str,
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }

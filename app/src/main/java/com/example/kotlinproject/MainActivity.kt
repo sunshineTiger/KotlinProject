@@ -13,6 +13,7 @@ import com.example.kotlinproject.data.JavaBean
 import com.example.kotlinproject.model.MainModel
 import com.example.kotlinproject.net.retrofit.RetrofitUtil
 import com.example.kotlinproject.presenter.MainPresenter
+import com.example.kotlinproject.utils.LogUtil
 import com.example.kotlinproject.utils.StatusBarUtil
 import com.example.kotlinproject.view.MainView
 import io.reactivex.Observable
@@ -40,11 +41,11 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
 //            startActivity(intent)
             mPresenter!!.work()
         })
-        val observable: Observable<JavaBean> =
-            RetrofitUtil.instance.getRetrofitInterface().getCall(1)
-        observable.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { t -> Log.e("getDataFromServer", t.getNewslist()!!.size.toString() + "") }
+//        val observable: Observable<JavaBean> =
+//            RetrofitUtil.instance.getRetrofitInterface().getCall(1)
+//        observable.subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe { t -> Log.e("getDataFromServer", t.getNewslist()!!.size.toString() + "") }
     }
 
 
@@ -53,10 +54,26 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
     }
 
     override fun success() {
-
+        LogUtil.info("xxxx", "success")
     }
 
+    override fun showLoading() {
+        super.showLoading()
+        LogUtil.info("xxxx", "showLoading")
+    }
+
+    override fun hideLoading() {
+        super.hideLoading()
+        LogUtil.info("xxxx", "hideLoading")
+    }
+
+    override fun showToast(str: String) {
+        super.showToast(str)
+    }
+
+
     override fun getPresenter(): MainPresenter {
+        LogUtil.info("xxxx", "getPresenter")
         return MainPresenter(this)
     }
 

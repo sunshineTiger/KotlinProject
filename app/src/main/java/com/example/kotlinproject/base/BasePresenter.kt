@@ -20,13 +20,19 @@ abstract class BasePresenter<T : IBaseView>(view: T) {
     protected var viewLayer: T? = view
     protected lateinit var modelLayer: IBaseModel<MyCallback>
 
+    init {
+        initModel()
+    }
 
-    abstract fun getModel(): IBaseModel<MyCallback>
-
-
-    fun attachView() {
+    private fun initModel() {
         modelLayer = getModel()
     }
+
+    /**
+     * 获取model层
+     */
+    abstract fun getModel(): IBaseModel<MyCallback>
+
 
     /**
      * 解绑view
