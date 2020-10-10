@@ -34,7 +34,7 @@ abstract class BaseActivity<T : BasePresenter<IBaseView>> : AppCompatActivity(),
         initBeforeSetContentView()
         setContentView(getLayoutId())
         setStatusBar()
-        mPresenter = getPresenter()
+        mPresenter = bindPresenter()
         initData()
         initView()
     }
@@ -90,7 +90,7 @@ abstract class BaseActivity<T : BasePresenter<IBaseView>> : AppCompatActivity(),
     /**
      * 初始化Presenter
      */
-    abstract fun getPresenter(): T
+    abstract fun bindPresenter(): T
 
     override fun onDestroy() {
         super.onDestroy()

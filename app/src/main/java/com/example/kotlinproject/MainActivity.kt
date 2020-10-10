@@ -1,6 +1,7 @@
 package com.example.kotlinproject
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -13,6 +14,7 @@ import com.example.kotlinproject.data.JavaBean
 import com.example.kotlinproject.model.MainModel
 import com.example.kotlinproject.net.retrofit.RetrofitUtil
 import com.example.kotlinproject.presenter.MainPresenter
+import com.example.kotlinproject.utils.IntentUtils
 import com.example.kotlinproject.utils.LogUtil
 import com.example.kotlinproject.utils.StatusBarUtil
 import com.example.kotlinproject.view.MainView
@@ -37,9 +39,12 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
     override fun initView() {
         val btn = findViewById<Button>(R.id.btn)
         btn.setOnClickListener(View.OnClickListener {
+            IntentUtils.JumpTo(FragmentActivity::class.java)
 //            val intent = Intent(this, FragmentActivity::class.java)
 //            startActivity(intent)
-            mPresenter!!.work()
+//            showLoading()
+//            mPresenter!!.work()
+//            hideLoading()
         })
 //        val observable: Observable<JavaBean> =
 //            RetrofitUtil.instance.getRetrofitInterface().getCall(1)
@@ -72,7 +77,7 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
     }
 
 
-    override fun getPresenter(): MainPresenter {
+    override fun bindPresenter(): MainPresenter {
         LogUtil.info("xxxx", "getPresenter")
         return MainPresenter(this)
     }

@@ -25,19 +25,20 @@ abstract class BasePresenter<T : IBaseView>(view: T) {
     }
 
     private fun initModel() {
-        modelLayer = getModel()
+        modelLayer = bindModel()
     }
 
     /**
      * 获取model层
      */
-    abstract fun getModel(): IBaseModel<MyCallback>
+    abstract fun bindModel(): IBaseModel<MyCallback>
 
 
     /**
      * 解绑view
      */
     fun detachView() {
+
         viewLayer = null
     }
 

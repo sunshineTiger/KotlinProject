@@ -34,12 +34,12 @@ class MainPresenter(mainView: MainView) : BasePresenter<IBaseView>(mainView), Ma
     }
 
 
-    override fun getModel(): IBaseModel<MyCallback> {
+    override fun bindModel(): IBaseModel<MyCallback> {
         return MainModel(this)
     }
 
     override fun method1() {
-        if (null != viewLayer){
+        if (null != viewLayer) {
             LogUtil.info("xxxx", "method1")
             (viewLayer as MainView).success()
         }
