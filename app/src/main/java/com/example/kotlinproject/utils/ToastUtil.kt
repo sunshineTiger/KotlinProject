@@ -26,5 +26,13 @@ class ToastUtil {
                 Toast.LENGTH_SHORT
             ).show()
         }
+
+        fun showLong(){
+            Toast.makeText(
+                    AppManager.instance.currentActivity().applicationContext,
+                    str,
+                    Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 }
