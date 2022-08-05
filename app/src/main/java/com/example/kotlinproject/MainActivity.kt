@@ -90,4 +90,8 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
     fun hello(){
         LogUtil.info("hello", "hello")
     }
+
+    fun hello1(){
+        LogUtil.info("hello1", "hello1")
+    }
 }
