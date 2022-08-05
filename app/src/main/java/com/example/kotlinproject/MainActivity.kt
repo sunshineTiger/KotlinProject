@@ -54,6 +54,7 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
     }
 
 
+
     override fun setStatusBar() {
         StatusBarUtil.setTranslucent(this, 0)
     }
@@ -84,5 +85,9 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
 
     override fun initData() {
 
+    }
+
+    fun hello(){
+        LogUtil.info("hello", "hello")
     }
 }
